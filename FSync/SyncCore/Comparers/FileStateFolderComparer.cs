@@ -12,9 +12,6 @@ internal class FileStateFolderComparer : IFolderComparer
         var firstFolderStates = FolderScanner.GetFileStates(mainFolderPath);
         var secondFolderStates = FolderScanner.GetFileStates(replicaFolderPath);
 
-        if (firstFolderStates.IsNullOrEmpty() || secondFolderStates.IsNullOrEmpty())
-            return new FolderDiff(new List<FileState>(), new List<FileState>(), new List<FileState>());
-
         var missing = new List<FileState>();
         var changed = new List<FileState>();
         var removed = new List<FileState>();
